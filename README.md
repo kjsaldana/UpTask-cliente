@@ -1,70 +1,70 @@
-# React + TypeScript + Vite
+<table width="100%" align="center">
+  <tr>
+    <td align="center" valign="middle">
+      <h1>🗒️ UpTask - Frontend Project Management</h1>
+      <p><b>Gestión de Proyectos Colaborativa en Tiempo Real</b></p>
+      <hr width="50%" />
+      <p>React | TypeScript | Vite | TailwindCSS | TanStack Query | Zod | Axios</p>
+    </td>
+  </tr>
+</table>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<table>
+  <tr>
+    <td width="50%">
+      <div align="center">
+        <img src="./assets/screenshots/sch1.webp" width="100%" alt="Vista 1">
+      </div>
+    </td>
+    <td width="50%">
+      <div align="center">
+        <img src="./assets/screenshots/sch2.webp" width="100%" alt="Vista 2">
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <div align="center">
+        <img src="./assets/screenshots/sch3.webp" width="100%" alt="Vista 3">
+      </div>
+    </td>
+    <td width="50%">
+      <div align="center">
+        <img src="./assets/screenshots/sch4.webp" width="100%" alt="Vista 4">
+      </div>
+    </td>
+  </tr>
+</table>
 
-Currently, two official plugins are available:
+## Visión General
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La interfaz de cliente de **UpTask** es moderna y diseñada para ofrecer una experiencia de usuario fluida e instantánea. Permite a los equipos crear proyectos, asignar tareas y colaborar de forma segura, con una UI optimizada que reacciona en tiempo real a los cambios del estado.
 
-## Expanding the ESLint configuration
+Este frontend consume una API Restful segura y maneja lógica compleja de permisos y roles (Manager vs. Colaborador) directamente en el navegador.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Stack Tecnológico y Justificación Técnica
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+La elección del stack prioriza el rendimiento (Vite), la seguridad de tipos (TypeScript) y la gestión eficiente del estado asíncrono.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Tecnología | Implementación y Justificación |
+| :--- | :--- |
+| **React + Vite** | Utilizamos **Vite** como bundler para un entorno de desarrollo ultrarrápido y una compilación optimizada para producción. React maneja la interactividad de la UI mediante componentes funcionales. |
+| **TypeScript** | Implementación estricta de tipos. Al definir interfaces para `Project`, `Task` y `User` y mejoramos la mantenibilidad del código. |
+| **TanStack Query (React Query)** | **Decisión Clave:** En lugar de useEffects manuales o Redux, usamos React Query para gestionar el estado del servidor. Esto nos da caché automática, reintentos en caso de error y actualizaciones en segundo plano (optimistic updates). |
+| **TailwindCSS + Headless UI** | Diseño basado en utilidades para una maquetación rápida y responsiva. **Headless UI** proporciona componentes accesibles (Modales, Menús) sin estilos predefinidos, dándonos control total sobre el diseño visual. |
+| **React Hook Form** | Gestión de formularios complejos (Login, Creación de Tareas). Su arquitectura "uncontrolled" reduce los re-renderizados innecesarios, mejorando drásticamente el rendimiento en formularios grandes. |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Desafíos de Frontend Resueltos
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# UpTask-cliente
+### 1. Optimistic UI Updates
+Para que la aplicación se sienta "nativa", implementamos actualizaciones optimistas. Cuando un usuario cambia el estado de una tarea a "Completada", la UI se actualiza instantáneamente antes de recibir la confirmación del servidor, revirtiendo el cambio solo si la petición falla.
+
+### 2. Gestión de Roles y Permisos
+El frontend no solo oculta botones, implementa una lógica robusta para determinar si el usuario logueado es el `Manager` del proyecto o un `Colaborador`. Esto condiciona dinámicamente qué componentes se renderizan (ej: solo el Manager puede eliminar tareas).
+
+### 3. Autenticación Persistente
+Sistema de manejo de JWT (JSON Web Tokens) almacenados de forma segura, con interceptores de Axios configurados para inyectar el token en cada petición y redirigir al login automáticamente si la sesión expira.

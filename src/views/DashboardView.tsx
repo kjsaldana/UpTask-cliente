@@ -38,7 +38,7 @@ export default function DashboardView() {
                         Manager
                       </p>
                       :
-                      <p className="uppercase text-xs text-indigo-500 bg-indigo-50 border-2 border-indigo-500 py-1 px-5 font-extrabold text-center rounded-lg max-w-30"
+                      <p className="uppercase text-xs text-indigo-500 bg-indigo-50 border-2 border-indigo-500 py-1 px-2 font-extrabold text-center rounded-lg max-w-30"
                       >
                         Colaborador
                       </p>}

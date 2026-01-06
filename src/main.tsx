@@ -7,12 +7,13 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
 
 const queryClient = new QueryClient()
+const showDevtools = false 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-      <ReactQueryDevtools />
+      {showDevtools && <ReactQueryDevtools initialIsOpen={false} />}
     </QueryClientProvider>
   </StrictMode>,
 )
