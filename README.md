@@ -36,9 +36,18 @@
   </tr>
 </table>
 
+
+## Credenciales de Prueba
+
+Para facilitar la revisión del proyecto, puede utilizar las siguientes credenciales de acceso:
+
+**Usuario:** tester@gmail.com
+
+**Contraseña:** tester123
+
 ## Visión General
 
-La interfaz de cliente de **UpTask** es moderna y diseñada para ofrecer una experiencia de usuario fluida e instantánea. Permite a los equipos crear proyectos, asignar tareas y colaborar de forma segura, con una UI optimizada que reacciona en tiempo real a los cambios del estado.
+La interfaz de cliente de UpTask es moderna y diseñada para ofrecer una experiencia de usuario fluida e instantánea. Permite a los equipos crear proyectos, asignar tareas y colaborar de forma segura, con una UI optimizada que reacciona en tiempo real a los cambios del estado.
 
 Este frontend consume una API Restful segura y maneja lógica compleja de permisos y roles (Manager vs. Colaborador) directamente en el navegador.
 
@@ -50,10 +59,10 @@ La elección del stack prioriza el rendimiento (Vite), la seguridad de tipos (Ty
 
 | Tecnología | Implementación y Justificación |
 | :--- | :--- |
-| **React + Vite** | Utilizamos **Vite** como bundler para un entorno de desarrollo ultrarrápido y una compilación optimizada para producción. React maneja la interactividad de la UI mediante componentes funcionales. |
+| **React + Vite** | Utilizamos Vite como bundler para un entorno de desarrollo ultrarrápido y una compilación optimizada para producción. React maneja la interactividad de la UI mediante componentes funcionales. |
 | **TypeScript** | Implementación estricta de tipos. Al definir interfaces para `Project`, `Task` y `User` y mejoramos la mantenibilidad del código. |
-| **TanStack Query (React Query)** | **Decisión Clave:** En lugar de useEffects manuales o Redux, usamos React Query para gestionar el estado del servidor. Esto nos da caché automática, reintentos en caso de error y actualizaciones en segundo plano (optimistic updates). |
-| **TailwindCSS + Headless UI** | Diseño basado en utilidades para una maquetación rápida y responsiva. **Headless UI** proporciona componentes accesibles (Modales, Menús) sin estilos predefinidos, dándonos control total sobre el diseño visual. |
+| **TanStack Query (React Query)** | Decisión Clave: En lugar de useEffects manuales o Redux, usamos React Query para gestionar el estado del servidor. Esto nos da caché automática, reintentos en caso de error y actualizaciones en segundo plano (optimistic updates). |
+| **TailwindCSS + Headless UI** | Diseño basado en utilidades para una maquetación rápida y responsiva. Headless UI proporciona componentes accesibles (Modales, Menús) sin estilos predefinidos, dándonos control total sobre el diseño visual. |
 | **React Hook Form** | Gestión de formularios complejos (Login, Creación de Tareas). Su arquitectura "uncontrolled" reduce los re-renderizados innecesarios, mejorando drásticamente el rendimiento en formularios grandes. |
 
 ---
