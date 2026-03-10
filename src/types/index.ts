@@ -52,6 +52,7 @@ export type TaskStatus = z.infer<typeof taskStatusSchema>
 export const taskSchema = z.object({
     _id: z.string(),
     name: z.string(),
+    responsable: z.string(),
     description: z.string(),
     project: z.string(),
     completedBy: z.array(z.object({
@@ -68,13 +69,14 @@ export const taskSchema = z.object({
 export const taskProjectSchema = taskSchema.pick({
     _id: true,
     name: true,
+    responsable: true,
     description: true,
     status: true
 })
 
 export type Task = z.infer<typeof taskSchema>
 export type TaskProject = z.infer<typeof taskProjectSchema>
-export type TaskFormData = Pick<Task, 'name' | 'description'>
+export type TaskFormData = Pick<Task, 'name' | 'description' | 'responsable'>
 
 // PROJECTS
 
