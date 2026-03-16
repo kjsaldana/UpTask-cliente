@@ -38,7 +38,7 @@ export default function AddNoteForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit(handleAddNote)} className='space-y-3' noValidate>
+        <form onSubmit={handleSubmit(handleAddNote)} className='space-y-3 mt-5' noValidate>
             <div className='flex flex-col gap-2'>
                 <label htmlFor="content" className='font-bold'>Nueva Nota</label>
                 <input
