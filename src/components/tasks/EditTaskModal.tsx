@@ -20,7 +20,8 @@ export default function EditTaskModal({ data }: EditTaskModalProps) {
     const { register, handleSubmit, formState: { errors }, reset } = useForm<TaskFormData>({
         defaultValues: {
             name: data.name,
-            description: data.description
+            description: data.description,
+            responsable: data.responsable
         }
     })
 
