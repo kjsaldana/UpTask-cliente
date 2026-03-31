@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import { deleteTask } from "@/api/TaskAPI"
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react"
-import { EllipsisVerticalIcon } from "@heroicons/react/20/solid"
+import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
@@ -52,9 +52,9 @@ export default function TaskCard({ task, canEdit }: TaskCardProps) {
             </div>
             <div className="flex shrink-0 gap-x-6 max-w-0">
                 <Menu as="div" className="relative flex-none">
-                    <MenuButton className="absolute block text-cyan-800 hover:text-cyan-700 cursor-pointer -right-6 -top-3">
+                    <MenuButton className="absolute block text-gray-400 hover:text-cyan-700 cursor-pointer -right-3 -top-3 rotate-90">
                         <span className="sr-only">opciones</span>
-                        <EllipsisVerticalIcon className="h-8 w-8" aria-hidden="true" />
+                        <AdjustmentsHorizontalIcon className="h-6 w-6" aria-hidden="true" />
                     </MenuButton>
                     <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95"
                         enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75"
