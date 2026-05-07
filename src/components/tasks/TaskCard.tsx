@@ -52,7 +52,7 @@ export default function TaskCard({ task, canEdit }: TaskCardProps) {
             </div>
             <div className="flex shrink-0 gap-x-6 max-w-0">
                 <Menu as="div" className="relative flex-none">
-                    <MenuButton className="absolute block text-gray-400 hover:text-cyan-700 cursor-pointer -right-3 -top-3 rotate-90">
+                    <MenuButton className="absolute block text-gray-400 hover:text-cyan-700 cursor-pointer -right-3 -top-3">
                         <span className="sr-only">opciones</span>
                         <AdjustmentsHorizontalIcon className="h-6 w-6" aria-hidden="true" />
                     </MenuButton>
