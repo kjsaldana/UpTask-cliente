@@ -53,7 +53,7 @@ Este frontend consume una API Restful segura y maneja lógica compleja de permis
 
 ---
 
-## Stack Tecnológico y Justificación Técnica
+## Stack Tecnológico
 
 La elección del stack prioriza el rendimiento (Vite), la seguridad de tipos (TypeScript) y la gestión eficiente del estado asíncrono.
 
@@ -67,7 +67,7 @@ La elección del stack prioriza el rendimiento (Vite), la seguridad de tipos (Ty
 
 ---
 
-## Desafíos de Frontend Resueltos
+## Desafíos de Frontend
 
 ### 1. Optimistic UI Updates
 Para que la aplicación se sienta "nativa", implementamos actualizaciones optimistas. Cuando un usuario cambia el estado de una tarea a "Completada", la UI se actualiza instantáneamente antes de recibir la confirmación del servidor, revirtiendo el cambio solo si la petición falla.
